@@ -32,22 +32,28 @@ export const images = {
 };
 
 export const heroStats = [
-  { value: '5+', label: 'Years Excellence' },
+  { value: '150+', label: 'Projects Delivered' },
   { value: '50+', label: 'Enterprise Clients' },
-  { value: '99.9%', label: 'Uptime SLA' },
+  { value: '40+', label: 'Certified Engineers' },
 ];
 
 export const marqueeItems = [
-  'Cybersecurity', 'Cloud Solutions', 'Network Infrastructure', 'DevSecOps',
-  'VAPT', 'Managed Services', 'Digital Transformation', 'SOC & NOC 24/7',
+  'Digital Transformation',
+  'Cloud Modernisation',
+  'Cybersecurity Services',
+  'Application Development',
+  'Data & AI',
+  'Infrastructure Services',
+  'DevSecOps',
+  'Strategy & Advisory',
 ];
 
 export const detailedStats = [
   { value: '5+', label: 'Years of Excellence' },
   { value: '50+', label: 'Enterprise Clients' },
   { value: '150+', label: 'Projects Delivered' },
-  { value: '24/7', label: 'NOC & SOC Coverage' },
-  { value: '99%', label: 'Uptime SLA' },
+  { value: '40+', label: 'Certified Engineers' },
+  { value: '6', label: 'Practice Areas' },
 ];
 
 export const aboutFeatures = [
@@ -159,7 +165,7 @@ export const serviceCategories = [
     id: 'managed',
     icon: 'Headphones',
     label: 'Managed Services',
-    tagline: '24/7 operations, always-on.',
+    tagline: 'Operate. Optimize. Evolve.',
     heroImage: 'https://images.pexels.com/photos/17489157/pexels-photo-17489157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     secondaryImage: 'https://images.pexels.com/photos/37730212/pexels-photo-37730212.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     image: 'https://images.pexels.com/photos/37730212/pexels-photo-37730212.jpeg',

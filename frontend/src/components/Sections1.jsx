@@ -61,10 +61,10 @@ export const About = () => (
             to excel in the <span className="font-italic text-gradient-teal">digital era</span>
           </h2>
           <p className="text-[15px] leading-[1.8] text-[#1a2520]/75 mb-8 max-w-xl">
-            Ingrowlogy Private Limited delivers advanced cybersecurity services to protect
-            sensitive data and critical assets in an evolving threat landscape. By aligning
-            technical expertise with your business objectives, we help organizations build
-            resilience, scale effectively and stay future-ready.
+            Ingrowlogy is a digital transformation services partner — combining strategy,
+            architecture and engineering capability across cybersecurity, cloud, infrastructure
+            and application services. We align technical expertise with your business
+            objectives to deliver outcomes, not just tickets.
           </p>
           <div className="relative p-8 mb-10 border-l-2 border-[#22a884] bg-white/40 backdrop-blur-sm rounded-r-sm tilt-on-hover">
             <p className="font-italic font-serif text-2xl text-[#1a2520]/85 leading-snug">

@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import {
   ArrowRight,
   ArrowDown,
-  ShieldCheck,
-  Activity,
-  Lock,
-  AlertTriangle,
-  Cpu,
-  TrendingUp,
+  Rocket,
+  Award,
+  Briefcase,
+  Layers,
+  Users,
+  Sparkles,
 } from 'lucide-react';
 import { heroStats, marqueeItems } from '../mock';
 
@@ -33,6 +33,12 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMove);
   }, []);
 
+  // Practice areas grid for card 2 - 6 active services
+  const practiceAreas = [
+    'Cybersecurity', 'Cloud', 'Infrastructure',
+    'DevSecOps', 'Development', 'Advisory',
+  ];
+
   return (
     <section
       id="home"
@@ -49,7 +55,7 @@ const Hero = () => {
             <div className="inline-flex items-center gap-3 px-4 py-2 mb-10 rounded-sm border border-[#22a884]/30 bg-white/40 backdrop-blur-sm reveal in-view">
               <span className="w-2 h-2 rounded-full bg-[#22a884] animate-pulse"></span>
               <span className="text-[11px] tracking-[0.25em] uppercase text-[#22a884] font-medium">
-                Cybersecurity · Cloud · Infrastructure · DevSecOps
+                Digital Transformation · Cloud · Cybersecurity · DevSecOps
               </span>
             </div>
 
@@ -64,8 +70,9 @@ const Hero = () => {
             </h1>
 
             <p className="mt-8 max-w-xl text-[15px] leading-[1.7] text-[#1a2520]/75 reveal in-view reveal-delay-3">
-              Ingrowlogy Private Limited empowers businesses to excel in the digital era —
-              aligning technical expertise with strategic objectives for sustainable growth.
+              Ingrowlogy is a digital transformation services partner — combining strategy,
+              architecture and engineering expertise to deliver outcomes that move your
+              business forward.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4 reveal in-view reveal-delay-4">
@@ -73,7 +80,7 @@ const Hero = () => {
                 href="/services"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 bg-[#22a884] text-white text-[12px] font-medium tracking-[0.22em] uppercase rounded-sm hover:bg-[#1c8d6f] transition-all duration-300 hover:shadow-xl hover:shadow-[#22a884]/30 hover:-translate-y-0.5"
               >
-                Explore Services
+                Our Services
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
@@ -117,52 +124,62 @@ const Hero = () => {
             <div className="hero-glow-dot alt" style={{ bottom: '8%', right: '14%' }}></div>
 
             <div ref={stageRef} className="hero-3d-stage">
-              {/* Card 1: Threat detection w/ mini bars */}
+              {/* Card 1: Project delivery growth */}
               <div className="hero-card hc-1">
                 <div className="hc-head">
                   <div className="hc-ico">
-                    <ShieldCheck className="w-5 h-5" />
+                    <Briefcase className="w-5 h-5" />
                   </div>
-                  <span className="hc-chip"><span className="pulse"></span>LIVE</span>
+                  <span className="hc-chip"><span className="pulse"></span>FY25</span>
                 </div>
                 <div>
-                  <div className="hc-eyebrow">Threats Blocked · 24h</div>
-                  <div className="hc-value">2,847</div>
-                  <div className="hc-sub mt-1">↑ 12% vs yesterday — auto-mitigated</div>
+                  <div className="hc-eyebrow">Projects Delivered</div>
+                  <div className="hc-value">150+</div>
+                  <div className="hc-sub mt-1">↑ 38% YoY — across 6 practice areas</div>
                 </div>
                 <div className="hc-bars">
-                  {[42, 60, 35, 78, 52, 88, 65, 95, 72, 58, 80, 64].map((h, i) => (
+                  {[30, 45, 38, 55, 50, 68, 62, 78, 72, 85, 92, 100].map((h, i) => (
                     <span key={i} style={{ height: `${h}%`, animationDelay: `${i * 0.08}s` }}></span>
                   ))}
                 </div>
               </div>
 
-              {/* Card 2 (dark): Network ops grid */}
+              {/* Card 2 (dark): Practice portfolio */}
               <div className="hero-card hc-2 dark">
                 <div className="hc-head">
                   <div className="hc-ico">
-                    <Cpu className="w-5 h-5" />
+                    <Layers className="w-5 h-5" />
                   </div>
-                  <span className="hc-chip"><span className="pulse"></span>NOC</span>
+                  <span className="hc-chip"><span className="pulse"></span>6 PRACTICES</span>
                 </div>
                 <div>
-                  <div className="hc-eyebrow">Network Nodes Online</div>
-                  <div className="hc-value">148 / 150</div>
-                  <div className="hc-sub mt-1">2 in scheduled maintenance</div>
+                  <div className="hc-eyebrow">Service Portfolio</div>
+                  <div className="hc-value">End-to-end</div>
+                  <div className="hc-sub mt-1">Advisory · Build · Run</div>
                 </div>
-                <div className="hc-nodes">
-                  {Array.from({ length: 25 }).map((_, i) => (
-                    <div key={i} className={[1,2,4,5,6,8,9,10,12,13,14,16,17,19,20,22,23,24].includes(i) ? 'active' : ''}></div>
+                <div className="grid grid-cols-3 gap-1.5 mt-1">
+                  {practiceAreas.map((p, i) => (
+                    <div
+                      key={p}
+                      className="text-[9.5px] font-medium tracking-wide px-2 py-1.5 rounded text-center"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(34,168,132,0.22), rgba(34,168,132,0.08))',
+                        border: '1px solid rgba(95, 211, 179, 0.3)',
+                        color: '#cdeee0',
+                      }}
+                    >
+                      {p}
+                    </div>
                   ))}
                 </div>
               </div>
 
-              {/* Card 3: Compact uptime ring */}
+              {/* Card 3: Client satisfaction ring */}
               <div className="hero-card hc-3">
                 <div className="hc-head">
                   <div>
-                    <div className="hc-eyebrow">Uptime SLA</div>
-                    <div className="hc-title mt-1">Last 90 days</div>
+                    <div className="hc-eyebrow">Client Satisfaction</div>
+                    <div className="hc-title mt-1">NPS Score</div>
                   </div>
                   <div className="hc-ring">
                     <svg width="88" height="88" viewBox="0 0 88 88">
@@ -174,7 +191,7 @@ const Hero = () => {
                         strokeWidth="8"
                         strokeLinecap="round"
                         strokeDasharray="226"
-                        strokeDashoffset="2"
+                        strokeDashoffset="42"
                       />
                       <defs>
                         <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
@@ -183,30 +200,30 @@ const Hero = () => {
                         </linearGradient>
                       </defs>
                     </svg>
-                    <div className="label" style={{ color: '#1a2520' }}>99.9%</div>
+                    <div className="label" style={{ color: '#1a2520' }}>72</div>
                   </div>
                 </div>
               </div>
 
-              {/* Floating pill 1 */}
+              {/* Floating pill 1: Time-to-value */}
               <div className="hero-stat-pill hsp-1">
                 <div className="ico">
-                  <Activity className="w-4 h-4" />
+                  <Rocket className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Avg Detect</div>
-                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">{`< 4 min`}</div>
+                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Time to Value</div>
+                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">{`< 4 weeks`}</div>
                 </div>
               </div>
 
-              {/* Floating pill 2 */}
+              {/* Floating pill 2: ISO/SOC certifications */}
               <div className="hero-stat-pill hsp-2">
                 <div className="ico" style={{ background: 'linear-gradient(135deg, #f5af50, #e8902a)' }}>
-                  <Lock className="w-4 h-4" />
+                  <Award className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Zero Trust</div>
-                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">100% policies</div>
+                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Certified</div>
+                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">ISO 27001 · SOC 2</div>
                 </div>
               </div>
             </div>
