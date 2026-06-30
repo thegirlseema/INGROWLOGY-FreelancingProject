@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,21 +6,38 @@
 
 body {
     margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: 'ss01', 'cv11', 'liga', 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #eef6f0;
     color: #1a2520;
     overflow-x: hidden;
+    letter-spacing: -0.005em;
 }
 
 .font-serif {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Fraunces', 'Georgia', serif;
+    font-weight: 500;
+    font-feature-settings: 'ss01', 'ss02', 'ss03', 'liga', 'kern';
+    letter-spacing: -0.022em;
 }
 
 .font-italic {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Fraunces', 'Georgia', serif;
     font-style: italic;
+    font-weight: 500;
+    font-feature-settings: 'ss01', 'ss02', 'liga', 'kern';
+    letter-spacing: -0.018em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: 'ss01', 'liga', 'kern';
+}
+
+/* Refined uppercase tracking */
+.tracking-pro {
+    letter-spacing: 0.16em;
 }
 
 code {
@@ -233,8 +250,10 @@ code {
 
 /* Hero number cards */
 .stat-number {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', 'Georgia', serif;
   font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   background: linear-gradient(135deg, #f5af50, #e8902a);
   -webkit-background-clip: text;
   background-clip: text;
