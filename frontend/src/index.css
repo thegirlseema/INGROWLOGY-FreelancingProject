@@ -701,3 +701,43 @@ html {
   transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .img-strip > div:hover img { transform: scale(1.08); }
+
+/* ============ Mobile responsive overrides ============ */
+@media (max-width: 1023px) {
+  /* Tighter section padding on tablet & mobile */
+  section.py-28 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  section.py-24 { padding-top: 4rem; padding-bottom: 4rem; }
+  section.py-20 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+}
+
+@media (max-width: 640px) {
+  section.py-28 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  section.py-24 { padding-top: 3rem; padding-bottom: 3rem; }
+  section.py-20 { padding-top: 2.75rem; padding-bottom: 2.75rem; }
+  section.py-16 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+  /* Reduce hero clamp range on mobile so headings don't dominate */
+  h1.font-serif { line-height: 1.02; }
+
+  /* Smaller orbs on mobile so they don't overwhelm */
+  .orb-1, .orb-2, .orb-3 {
+    width: 280px !important;
+    height: 280px !important;
+    filter: blur(60px);
+    opacity: 0.32;
+  }
+
+  /* Hide decorative spinning rings on mobile to reduce clutter */
+  .slow-spin { display: none; }
+
+  /* Reduce card hover transform on touch */
+  .card-3d:hover {
+    transform: none;
+  }
+
+  /* Footer column stacking already handled by tailwind grid - extra polish */
+  footer .grid-lines { display: none; }
+}
+
+/* Prevent any horizontal scroll universally */
+html, body { max-width: 100%; overflow-x: hidden; }
