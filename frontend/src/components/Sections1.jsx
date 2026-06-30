@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import {
   detailedStats,
   aboutFeatures,
   whyChoose,
   serviceCategories,
-  partners,
-  missionPoints,
-  visionPoints,
-  clients,
-  contactInfo,
 } from '../mock';
 import { ArrowRight } from 'lucide-react';
 
@@ -79,12 +75,12 @@ export const About = () => (
             </div>
           </div>
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#about"
+            <Link
+              to="/about"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#22a884] text-white text-[12px] font-medium tracking-[0.22em] uppercase rounded-sm hover:bg-[#1c8d6f] transition-all duration-300 hover:-translate-y-0.5"
             >
               Our Story <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-6 py-3 border border-[#22a884]/40 text-[#1a2520] text-[12px] font-medium tracking-[0.22em] uppercase rounded-sm hover:bg-[#22a884]/5 transition-all duration-300"
@@ -186,12 +182,12 @@ export const Services = () => {
               to cloud infrastructure to full-stack development.
             </p>
           </div>
-          <a
-            href="#services"
+          <Link
+            to="/services"
             className="inline-flex items-center gap-2 px-6 py-3 border border-[#22a884]/40 text-[#1a2520] text-[12px] font-medium tracking-[0.22em] uppercase rounded-sm hover:bg-[#22a884]/5 transition-all duration-300 self-start"
           >
             All Services <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+          </Link>
         </div>
 
         {/* Tabs */}

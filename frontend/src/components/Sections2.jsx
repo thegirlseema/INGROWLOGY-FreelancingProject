@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import { partners, missionPoints, visionPoints, clients, contactInfo } from '../mock';
@@ -31,17 +32,18 @@ export const Partners = () => (
             that <span className="font-italic text-gradient-teal">define industries</span>
           </h2>
         </div>
-        <a
-          href="#partners"
+        <Link
+          to="/partners"
           className="inline-flex items-center gap-2 px-6 py-3 border border-[#22a884]/40 text-[#1a2520] text-[12px] font-medium tracking-[0.22em] uppercase rounded-sm hover:bg-[#22a884]/5 transition-all duration-300 self-start"
         >
           All Partners <ArrowRight className="w-3.5 h-3.5" />
-        </a>
+        </Link>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {partners.map((p, i) => (
-          <div
+          <Link
+            to={`/partners/${p.id}`}
             key={p.name}
             className="card-3d group bg-white/60 backdrop-blur-sm p-8 rounded-sm border border-[#22a884]/15 text-center reveal"
             style={{ transitionDelay: `${i * 0.07}s` }}
@@ -52,7 +54,7 @@ export const Partners = () => (
             <div className="text-[10px] tracking-[0.28em] uppercase text-[#1a2520]/55">
               {p.role}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
