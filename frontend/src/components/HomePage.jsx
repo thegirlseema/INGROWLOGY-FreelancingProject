@@ -1,7 +1,8 @@
 import React from 'react';
 import Hero from './Hero';
 import { StatsStrip, About, WhyChoose, Services } from './Sections1';
-import { Partners, MissionVision, Clients, CTA, Contact } from './Sections2';
+import { Partners, MissionVision, CTA, Contact } from './Sections2';
+import { Industries, CaseStudies, Testimonials, Insights } from './Sections3';
 
 const HomePage = () => (
   <>
@@ -10,9 +11,12 @@ const HomePage = () => (
     <About />
     <WhyChoose />
     <Services />
+    <CaseStudies />
     <Partners />
+    <Industries />
+    <Testimonials />
     <MissionVision />
-    <Clients />
+    <Insights />
     <CTA />
     <Contact />
   </>

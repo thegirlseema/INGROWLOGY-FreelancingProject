@@ -1,14 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as Icons from 'lucide-react';
 import { Zap, Mail, Phone, MapPin, Linkedin, Twitter, Facebook, ArrowRight } from 'lucide-react';
-import { serviceCategories, partners } from '../mock';
+import { serviceCategories, partners, offices } from '../mock';
 
 const Footer = () => {
   return (
     <footer className="relative pt-20 pb-8 bg-gradient-to-b from-[#eef6f0] to-[#dde9e0] border-t border-[#22a884]/15">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Offices row */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-10 mb-10 border-b border-[#22a884]/15">
+          {offices.map((o, i) => (
+            <div
+              key={o.name}
+              className="bg-white/55 backdrop-blur-sm border border-[#22a884]/15 p-5 rounded-sm hover:border-[#22a884]/35 transition-all duration-500"
+            >
+              <div className="flex items-center gap-2.5 mb-3">
+                <span
+                  className="w-2.5 h-2.5 rounded-full"
+                  style={{ background: o.flagColor }}
+                />
+                <span className="text-[10px] tracking-[0.28em] uppercase text-[#22a884] font-medium">
+                  {o.country}
+                </span>
+              </div>
+              <div className="font-semibold text-[#1a2520] text-[13.5px] mb-1.5 leading-snug">
+                {o.name}
+              </div>
+              <div className="text-[12px] text-[#1a2520]/65 leading-[1.6]">
+                {o.address}
+                <br />
+                {o.region}
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="grid lg:grid-cols-12 gap-10 pb-12 border-b border-[#22a884]/15">
           {/* Brand */}
           <div className="lg:col-span-4">

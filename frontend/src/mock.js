@@ -341,6 +341,190 @@ export const contactInfo = [
   { icon: 'Globe', label: 'Website', value: 'www.ingrowlogy.com' },
 ];
 
+export const inquiryTypes = [
+  { value: 'business', label: 'Business Enquiry' },
+  { value: 'partnership', label: 'Partnership' },
+  { value: 'careers', label: 'Careers' },
+  { value: 'support', label: 'Support' },
+  { value: 'other', label: 'Other' },
+];
+
+export const industries = [
+  { icon: 'Banknote', name: 'BFSI', tagline: 'Secure platforms, risk models, automation at scale.' },
+  { icon: 'HeartPulse', name: 'Healthcare', tagline: 'HIPAA-ready solutions for patients and operations.' },
+  { icon: 'Factory', name: 'Manufacturing', tagline: 'IoT-driven automation, real-time quality, demand forecasting.' },
+  { icon: 'GraduationCap', name: 'Education', tagline: 'Cloud-enabled learning, analytics, digital campus.' },
+  { icon: 'ShoppingBag', name: 'Retail & E-com', tagline: 'Real-time data, personalization, inventory optimization.' },
+  { icon: 'Building2', name: 'Government', tagline: 'Compliance-first, audit-ready secure citizen services.' },
+  { icon: 'Wheat', name: 'Agriculture', tagline: 'Precision farming, IoT crop monitoring, weather insights.' },
+  { icon: 'Truck', name: 'Logistics', tagline: 'Route optimization, fleet tracking, predictive demand.' },
+  { icon: 'Plane', name: 'Aviation', tagline: 'Flight optimization, maintenance analytics, ops systems.' },
+  { icon: 'Fuel', name: 'Oil & Gas', tagline: 'Remote monitoring, optimization, predictive maintenance.' },
+  { icon: 'Building', name: 'Real Estate', tagline: 'Smart listings, virtual tours, AI-led valuation tools.' },
+  { icon: 'Tv', name: 'Media & Entertainment', tagline: 'Content streaming, immersive digital experiences.' },
+  { icon: 'Car', name: 'Automotive', tagline: 'Connected vehicles, digital twin, smart manufacturing.' },
+  { icon: 'Cpu', name: 'SaaS & Tech', tagline: 'Multi-tenant architecture, agile cloud delivery.' },
+];
+
+export const caseStudies = [
+  {
+    id: 'bfsi-soc',
+    image: 'https://images.pexels.com/photos/5380618/pexels-photo-5380618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    tag: 'BFSI · Cybersecurity',
+    title: '24/7 SOC for a Tier-1 Indian NBFC',
+    summary: 'Designed and operationalised a co-managed SOC with EDR, SIEM and ZTNA — reducing mean-time-to-detect by 71% and clearing 4 RBI audits in 18 months.',
+    metrics: [
+      { label: 'MTTD reduction', value: '71%' },
+      { label: 'Audits cleared', value: '4' },
+      { label: 'Endpoints', value: '12,000+' },
+    ],
+  },
+  {
+    id: 'manufacturing-cloud',
+    image: 'https://images.pexels.com/photos/17489163/pexels-photo-17489163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    tag: 'Manufacturing · Cloud',
+    title: 'Multi-plant SAP migration to Azure',
+    summary: 'Re-architected ERP and shopfloor systems to a hub-and-spoke Azure landing zone across 6 plants — cutting infra spend 38% and improving batch reporting from hours to minutes.',
+    metrics: [
+      { label: 'Infra cost saved', value: '38%' },
+      { label: 'Plants migrated', value: '6' },
+      { label: 'Downtime', value: '< 4 hrs' },
+    ],
+  },
+  {
+    id: 'healthcare-devsecops',
+    image: 'https://images.pexels.com/photos/6424583/pexels-photo-6424583.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    tag: 'Healthcare · DevSecOps',
+    title: 'Compliant DevSecOps for a hospital chain',
+    summary: 'Built CI/CD with policy-as-code, container scanning and audit trails for a 30-hospital EMR — releasing 4x faster while passing every HIPAA-aligned compliance review.',
+    metrics: [
+      { label: 'Release velocity', value: '4×' },
+      { label: 'Hospitals', value: '30' },
+      { label: 'Critical CVEs', value: '0 in prod' },
+    ],
+  },
+];
+
+export const testimonials = [
+  {
+    quote: 'Ingrowlogy felt like an extension of our IT team — not a vendor. Their architects shaped a security roadmap we are still executing two years later.',
+    name: 'A. Krishnan',
+    role: 'CIO',
+    company: 'Manufacturing major',
+    initials: 'AK',
+  },
+  {
+    quote: 'They migrated our core banking workloads to cloud with zero unplanned downtime. Honest, deeply technical and accountable.',
+    name: 'R. Iyer',
+    role: 'Head of Infrastructure',
+    company: 'BFSI · Mumbai',
+    initials: 'RI',
+  },
+  {
+    quote: 'The SOC service paid for itself in the first quarter. Reporting clarity finally matched what auditors expect.',
+    name: 'S. Mehta',
+    role: 'CISO',
+    company: 'NBFC · Delhi',
+    initials: 'SM',
+  },
+  {
+    quote: 'Their DevSecOps engagement got us from monthly to weekly releases without breaking compliance — exactly what we needed.',
+    name: 'V. Rao',
+    role: 'VP Engineering',
+    company: 'Healthcare SaaS',
+    initials: 'VR',
+  },
+  {
+    quote: 'Practical, pragmatic, and refreshingly free of jargon. Ingrowlogy delivers what they commit.',
+    name: 'P. Banerjee',
+    role: 'Director IT',
+    company: 'Public sector · Kolkata',
+    initials: 'PB',
+  },
+  {
+    quote: 'A consulting partner that genuinely owns outcomes. Their team carries our success metrics, not just SLAs.',
+    name: 'N. Shah',
+    role: 'COO',
+    company: 'Retail group · West India',
+    initials: 'NS',
+  },
+];
+
+export const insights = [
+  {
+    id: 'zero-trust-india',
+    image: 'https://images.pexels.com/photos/5380618/pexels-photo-5380618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    tag: 'Cybersecurity',
+    date: '12 Mar 2025',
+    title: 'Zero Trust for Indian enterprises: a practical 90-day playbook',
+    summary: 'A pragmatic guide to rolling out Zero Trust Network Access without breaking existing apps.',
+  },
+  {
+    id: 'cloud-finops',
+    image: 'https://images.pexels.com/photos/37730211/pexels-photo-37730211.jpeg',
+    tag: 'Cloud',
+    date: '02 Feb 2025',
+    title: 'Cloud FinOps: where most enterprise teams leave money on the table',
+    summary: 'Five FinOps levers that consistently deliver 20–40% savings in the first quarter.',
+  },
+  {
+    id: 'devsecops-shift-left',
+    image: 'https://images.pexels.com/photos/6424583/pexels-photo-6424583.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    tag: 'DevSecOps',
+    date: '18 Jan 2025',
+    title: 'Shift-left security: what actually works in regulated industries',
+    summary: 'Lessons from BFSI and healthcare clients on embedding security in CI/CD without slowing delivery.',
+  },
+  {
+    id: 'rbi-cyber-2025',
+    image: 'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    tag: 'Compliance',
+    date: '07 Jan 2025',
+    title: 'RBI cyber resilience guidelines 2025: a CISO\u2019s readiness checklist',
+    summary: 'A line-by-line readiness checklist mapped to the latest RBI cyber-resilience requirements.',
+  },
+  {
+    id: 'soc-vs-mssp',
+    image: 'https://images.pexels.com/photos/30481728/pexels-photo-30481728.jpeg',
+    tag: 'Managed Services',
+    date: '22 Dec 2024',
+    title: 'In-house SOC vs MSSP vs co-managed: the real economics',
+    summary: 'A model for choosing between the three SOC operating modes for mid-market enterprises.',
+  },
+  {
+    id: 'ai-in-soc',
+    image: 'https://images.pexels.com/photos/5483248/pexels-photo-5483248.jpeg',
+    tag: 'AI · Security',
+    date: '10 Dec 2024',
+    title: 'AI in the SOC: hype, reality and what we deploy for clients',
+    summary: 'Where AI is genuinely helping security analysts \u2014 and where it is still mostly marketing.',
+  },
+];
+
+export const offices = [
+  {
+    country: 'India',
+    name: 'Ingrowlogy Pvt. Ltd. — HQ',
+    address: 'Noida, Uttar Pradesh',
+    region: 'IN-201301',
+    flagColor: '#138808',
+  },
+  {
+    country: 'India',
+    name: 'Ingrowlogy — South Office',
+    address: 'Bengaluru, Karnataka',
+    region: 'IN-560001',
+    flagColor: '#22a884',
+  },
+  {
+    country: 'India',
+    name: 'Ingrowlogy — West Office',
+    address: 'Mumbai, Maharashtra',
+    region: 'IN-400001',
+    flagColor: '#f5af50',
+  },
+];
+
 export const team = [
   { name: 'Rajiv Mehra', role: 'Founder & CEO', initials: 'RM' },
   { name: 'Anita Sharma', role: 'CTO', initials: 'AS' },
