@@ -1,10 +1,18 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight, ArrowDown, ShieldCheck, Activity, Server, Wifi } from 'lucide-react';
-import { heroStats, marqueeItems, images } from '../mock';
+import {
+  ArrowRight,
+  ArrowDown,
+  ShieldCheck,
+  Activity,
+  Lock,
+  AlertTriangle,
+  Cpu,
+  TrendingUp,
+} from 'lucide-react';
+import { heroStats, marqueeItems } from '../mock';
 
 const Hero = () => {
   const stageRef = useRef(null);
-  const wrapperRef = useRef(null);
 
   useEffect(() => {
     const handleMove = (e) => {
@@ -15,36 +23,19 @@ const Hero = () => {
       const cy = rect.top + rect.height / 2;
       const dx = (e.clientX - cx) / rect.width;
       const dy = (e.clientY - cy) / rect.height;
-      const tx = dx * 20;
-      const ty = dy * 18;
-      const rx = dx * 6;
-      const ry = dy * 6;
-      stage.style.setProperty('--tx', `${tx}px`);
-      stage.style.setProperty('--ty', `${ty}px`);
-      stage.style.setProperty('--rx', `${rx}deg`);
-      stage.style.setProperty('--ry', `${ry}deg`);
+      stage.style.setProperty('--tx', `${dx * 20}px`);
+      stage.style.setProperty('--ty', `${dy * 18}px`);
+      stage.style.setProperty('--rx', `${dx * 6}deg`);
+      stage.style.setProperty('--ry', `${dy * 6}deg`);
       stage.classList.add('tilt');
     };
-    const handleLeave = () => {
-      const stage = stageRef.current;
-      if (!stage) return;
-      stage.style.setProperty('--tx', `0px`);
-      stage.style.setProperty('--ty', `0px`);
-      stage.style.setProperty('--rx', `0deg`);
-      stage.style.setProperty('--ry', `0deg`);
-    };
     window.addEventListener('mousemove', handleMove);
-    window.addEventListener('mouseleave', handleLeave);
-    return () => {
-      window.removeEventListener('mousemove', handleMove);
-      window.removeEventListener('mouseleave', handleLeave);
-    };
+    return () => window.removeEventListener('mousemove', handleMove);
   }, []);
 
   return (
     <section
       id="home"
-      ref={wrapperRef}
       className="relative min-h-screen flex flex-col justify-center pt-32 pb-12 smooth-bg overflow-hidden"
     >
       <div className="orb orb-1"></div>
@@ -94,7 +85,6 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Hero stats inline */}
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg reveal in-view reveal-delay-4">
               {heroStats.map((stat) => (
                 <div key={stat.label}>
@@ -109,65 +99,114 @@ const Hero = () => {
 
           {/* Right: 3D Stage */}
           <div className="relative">
-            {/* Decorative dotted ring */}
             <svg
               className="hero-dots-ring slow-spin"
               viewBox="0 0 600 600"
               preserveAspectRatio="xMidYMid meet"
               fill="none"
             >
-              <circle cx="300" cy="300" r="240" stroke="#22a884" strokeWidth="0.7" strokeDasharray="2 6" opacity="0.5" />
-              <circle cx="300" cy="300" r="180" stroke="#f5af50" strokeWidth="0.7" strokeDasharray="2 8" opacity="0.5" />
-              <circle cx="300" cy="60" r="4" fill="#22a884" />
-              <circle cx="540" cy="300" r="3" fill="#f5af50" />
+              <circle cx="300" cy="300" r="260" stroke="#22a884" strokeWidth="0.7" strokeDasharray="2 6" opacity="0.45" />
+              <circle cx="300" cy="300" r="200" stroke="#f5af50" strokeWidth="0.7" strokeDasharray="2 8" opacity="0.45" />
+              <circle cx="300" cy="40" r="4" fill="#22a884" />
+              <circle cx="560" cy="300" r="3" fill="#f5af50" />
+              <circle cx="300" cy="560" r="3" fill="#22a884" />
+              <circle cx="40" cy="300" r="3" fill="#f5af50" />
             </svg>
 
+            <div className="hero-glow-dot" style={{ top: '12%', left: '12%' }}></div>
+            <div className="hero-glow-dot alt" style={{ bottom: '8%', right: '14%' }}></div>
+
             <div ref={stageRef} className="hero-3d-stage">
-              {/* Card 1: SOC */}
+              {/* Card 1: Threat detection w/ mini bars */}
               <div className="hero-card hc-1">
-                <img src={images.socHero} alt="Security Operations Centre" />
-                <div className="meta">SOC 24/7</div>
-                <div className="badge">
-                  <span className="dot"></span>
-                  <span>Live threat monitoring · 47 events / min</span>
+                <div className="hc-head">
+                  <div className="hc-ico">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <span className="hc-chip"><span className="pulse"></span>LIVE</span>
+                </div>
+                <div>
+                  <div className="hc-eyebrow">Threats Blocked · 24h</div>
+                  <div className="hc-value">2,847</div>
+                  <div className="hc-sub mt-1">↑ 12% vs yesterday — auto-mitigated</div>
+                </div>
+                <div className="hc-bars">
+                  {[42, 60, 35, 78, 52, 88, 65, 95, 72, 58, 80, 64].map((h, i) => (
+                    <span key={i} style={{ height: `${h}%`, animationDelay: `${i * 0.08}s` }}></span>
+                  ))}
                 </div>
               </div>
 
-              {/* Card 2: Cloud / server */}
-              <div className="hero-card hc-2">
-                <img src={images.serverRoom1} alt="Cloud Infrastructure" />
-                <div className="meta">Cloud</div>
-                <div className="badge">
-                  <Server className="w-3.5 h-3.5 text-[#22a884]" />
-                  <span>AWS · Azure · GCP</span>
+              {/* Card 2 (dark): Network ops grid */}
+              <div className="hero-card hc-2 dark">
+                <div className="hc-head">
+                  <div className="hc-ico">
+                    <Cpu className="w-5 h-5" />
+                  </div>
+                  <span className="hc-chip"><span className="pulse"></span>NOC</span>
+                </div>
+                <div>
+                  <div className="hc-eyebrow">Network Nodes Online</div>
+                  <div className="hc-value">148 / 150</div>
+                  <div className="hc-sub mt-1">2 in scheduled maintenance</div>
+                </div>
+                <div className="hc-nodes">
+                  {Array.from({ length: 25 }).map((_, i) => (
+                    <div key={i} className={[1,2,4,5,6,8,9,10,12,13,14,16,17,19,20,22,23,24].includes(i) ? 'active' : ''}></div>
+                  ))}
                 </div>
               </div>
 
-              {/* Card 3: DevOps small */}
+              {/* Card 3: Compact uptime ring */}
               <div className="hero-card hc-3">
-                <img src={images.devops1} alt="DevSecOps" />
-                <div className="meta">DevSecOps</div>
+                <div className="hc-head">
+                  <div>
+                    <div className="hc-eyebrow">Uptime SLA</div>
+                    <div className="hc-title mt-1">Last 90 days</div>
+                  </div>
+                  <div className="hc-ring">
+                    <svg width="88" height="88" viewBox="0 0 88 88">
+                      <circle cx="44" cy="44" r="36" fill="none" stroke="rgba(34,168,132,0.15)" strokeWidth="8" />
+                      <circle
+                        cx="44" cy="44" r="36"
+                        fill="none"
+                        stroke="url(#ringG)"
+                        strokeWidth="8"
+                        strokeLinecap="round"
+                        strokeDasharray="226"
+                        strokeDashoffset="2"
+                      />
+                      <defs>
+                        <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stopColor="#22a884" />
+                          <stop offset="100%" stopColor="#f5af50" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div className="label" style={{ color: '#1a2520' }}>99.9%</div>
+                  </div>
+                </div>
               </div>
 
-              {/* Floating stat pill 1: uptime */}
+              {/* Floating pill 1 */}
               <div className="hero-stat-pill hsp-1">
                 <div className="ico">
                   <Activity className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Uptime</div>
-                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">99.9% SLA</div>
+                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Avg Detect</div>
+                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">{`< 4 min`}</div>
                 </div>
               </div>
 
-              {/* Floating stat pill 2: clients */}
+              {/* Floating pill 2 */}
               <div className="hero-stat-pill hsp-2">
                 <div className="ico" style={{ background: 'linear-gradient(135deg, #f5af50, #e8902a)' }}>
-                  <ShieldCheck className="w-4 h-4" />
+                  <Lock className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Trusted by</div>
-                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">50+ Enterprises</div>
+                  <div className="text-[10px] tracking-[0.22em] uppercase text-[#1a2520]/55">Zero Trust</div>
+                  <div className="font-semibold text-[#1a2520] text-[15px] -mt-0.5">100% policies</div>
                 </div>
               </div>
             </div>
